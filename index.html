@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aashiv Kohli | Social Media Manager Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,sans-serif;background:#020617;color:#fff;overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1180px,92%);margin:auto}
+
+    .bg{position:fixed;inset:0;z-index:-1;overflow:hidden;background:radial-gradient(circle at 20% 10%,rgba(37,99,235,.28),transparent 28%),radial-gradient(circle at 85% 25%,rgba(168,85,247,.22),transparent 28%),#020617}
+    .float{position:absolute;color:rgba(255,255,255,.045);font-size:70px;animation:floatUp 14s linear infinite}
+    @keyframes floatUp{0%{transform:translateY(110vh) rotate(0)}100%{transform:translateY(-20vh) rotate(360deg)}}
+
+    header{position:sticky;top:0;z-index:50;background:rgba(2,6,23,.72);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+    .logo{font-weight:900;font-size:22px;letter-spacing:-.04em}
+    .navlinks{display:flex;gap:26px;color:#cbd5e1;font-size:14px}
+    .navlinks a:hover{color:#fff}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);font-weight:800;transition:.25s}
+    .btn:hover{transform:translateY(-3px);background:rgba(255,255,255,.15)}
+    .btn-main{background:#2563eb;border-color:#2563eb;box-shadow:0 18px 45px rgba(37,99,235,.32)}
+    .btn-white{background:#fff;color:#020617}
+
+    .hero{display:grid;grid-template-columns:1.08fr .92fr;gap:48px;align-items:center;padding:86px 0 70px}
+    .badge{display:inline-flex;gap:8px;align-items:center;padding:10px 15px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:#cbd5e1;margin-bottom:22px;font-size:14px}
+    h1{font-size:clamp(44px,6vw,78px);line-height:.96;letter-spacing:-.07em;font-weight:900}
+    .grad{background:linear-gradient(90deg,#60a5fa,#a78bfa,#67e8f9);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero p{color:#cbd5e1;font-size:18px;line-height:1.8;margin:25px 0 32px;max-width:680px}
+    .actions{display:flex;gap:14px;flex-wrap:wrap}
+
+    .profile-card{position:relative;border-radius:34px;padding:1px;background:linear-gradient(135deg,#60a5fa,#7c3aed,#06b6d4);box-shadow:0 35px 100px rgba(0,0,0,.45);animation:cardFloat 5s ease-in-out infinite}
+    @keyframes cardFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    .profile-inner{border-radius:34px;background:rgba(15,23,42,.94);padding:26px;overflow:hidden;position:relative}
+    .profile-inner:before{content:"";position:absolute;inset:-80px -80px auto auto;width:230px;height:230px;background:rgba(37,99,235,.25);filter:blur(35px);border-radius:50%}
+    .chip-live{position:absolute;top:22px;right:22px;padding:8px 13px;border-radius:999px;background:rgba(37,99,235,.22);border:1px solid rgba(147,197,253,.2);font-size:12px;color:#bfdbfe;font-weight:800;animation:pulse 2s infinite}
+    @keyframes pulse{50%{opacity:.65;transform:scale(.96)}}
+    .photo-row{display:grid;grid-template-columns:170px 1fr;gap:24px;align-items:center;margin-top:28px;position:relative;z-index:2}
+    .photo{width:170px;height:170px;border-radius:50%;padding:4px;background:linear-gradient(135deg,#60a5fa,#a78bfa,#67e8f9);position:relative}
+    .photo img{width:100%;height:100%;object-fit:cover;border-radius:50%;border:6px solid #020617}
+    .photo span{position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);background:#fff;color:#020617;padding:6px 12px;border-radius:999px;font-size:11px;font-weight:900;width:max-content}
+    .profile-info small{color:#93c5fd;letter-spacing:.28em;text-transform:uppercase;font-weight:900;font-size:11px}
+    .profile-info h2{font-size:34px;letter-spacing:-.05em;margin-top:10px}
+    .profile-info p{color:#cbd5e1;line-height:1.6;margin-top:10px}
+    .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:15px}
+    .chip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);padding:8px 11px;border-radius:999px;font-size:12px;font-weight:800;color:#e2e8f0}
+    .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:24px}
+    .stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);padding:19px;border-radius:23px;transition:.25s}
+    .stat:hover{transform:translateY(-5px);background:rgba(255,255,255,.1)}
+    .stat strong{display:block;font-size:25px;color:#fff}.stat span{font-size:13px;color:#94a3b8}
+
+    section{padding:72px 0}.head{display:flex;justify-content:space-between;gap:28px;align-items:end;margin-bottom:34px}.eyebrow{color:#93c5fd;text-transform:uppercase;letter-spacing:.32em;font-size:12px;font-weight:900;margin-bottom:12px}.title{font-size:clamp(34px,5vw,56px);line-height:1;letter-spacing:-.06em;font-weight:900}.head p,.text{color:#cbd5e1;line-height:1.8;font-size:17px;max-width:650px}
+    .grid{display:grid;gap:18px}.grid-3{grid-template-columns:repeat(3,1fr)}.grid-2{grid-template-columns:repeat(2,1fr)}.grid-4{grid-template-columns:repeat(4,1fr)}
+    .card{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.1);border-radius:28px;padding:26px;transition:.25s;position:relative;overflow:hidden}.card:hover{transform:translateY(-5px);background:rgba(255,255,255,.09);border-color:rgba(96,165,250,.28)}.card h3{font-size:24px;letter-spacing:-.04em;margin-bottom:10px}.card p,.card li{color:#cbd5e1;line-height:1.7}.icon{font-size:32px;margin-bottom:15px}
+    .service{display:flex;align-items:center;gap:12px;padding:18px;border-radius:20px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.09);font-weight:800}.service b{color:#60a5fa}
+    .project{min-height:260px}.project:before{content:"";position:absolute;right:-60px;bottom:-75px;width:190px;height:190px;border-radius:50%;background:rgba(37,99,235,.18);filter:blur(20px)}.project-top{position:relative;z-index:2;display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:20px}.num{color:#93c5fd;font-size:13px;font-weight:900;margin-bottom:8px}.open{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);transition:.25s;flex:0 0 auto}.open:hover{background:#fff;color:#020617;transform:rotate(10deg)}
+    .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.tag{padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);font-size:13px;font-weight:800;color:#e2e8f0}
+    .contact{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;padding:40px;border-radius:36px;background:linear-gradient(135deg,rgba(37,99,235,.18),rgba(255,255,255,.07));border:1px solid rgba(255,255,255,.12)}
+    .contact-box{background:rgba(2,6,23,.62);border-radius:26px;padding:26px;border:1px solid rgba(255,255,255,.08);display:grid;gap:15px;align-content:center;color:#cbd5e1}
+    .reveal{opacity:0;transform:translateY(28px);transition:.7s}.reveal.active{opacity:1;transform:translateY(0)}
+    footer{text-align:center;color:#64748b;padding:30px;border-top:1px solid rgba(255,255,255,.08)}
+    @media(max-width:900px){.hero,.grid-2,.grid-3,.grid-4,.contact{grid-template-columns:1fr}.head{display:block}.head p{margin-top:15px}.navlinks{display:none}.photo-row{grid-template-columns:1fr;text-align:center}.photo{margin:auto}.chips{justify-content:center}}
+    @media(max-width:560px){h1{font-size:43px}.hero{padding-top:55px}.stats{grid-template-columns:1fr}.contact{padding:24px}}
+  </style>
+</head>
+<body>
+  <div class="bg">
+    <div class="float" style="left:5%;animation-delay:0s">📊</div><div class="float" style="left:23%;animation-delay:3s">🎥</div><div class="float" style="left:55%;animation-delay:1s">🔥</div><div class="float" style="left:82%;animation-delay:5s">📈</div><div class="float" style="left:70%;animation-delay:7s">📱</div>
+  </div>
+
+  <header><div class="container nav"><a class="logo" href="#home">Aashiv Kohli</a><nav class="navlinks"><a href="#about">About</a><a href="#services">Services</a><a href="#work">Work</a><a href="#experience">Experience</a><a href="#contact">Contact</a></nav><a class="btn btn-white" href="mailto:aashivworks@gmail.com">Hire Me</a></div></header>
+
+  <main id="home">
+    <section class="container hero">
+      <div class="reveal">
+        <div class="badge">✨ Social Media Manager from Jalandhar, Punjab</div>
+        <h1>I build <span class="grad">high-performing</span> social media for brands.</h1>
+        <p>I create growth-focused social media strategies, reels plans, design direction, grid planning, SEO, GMB optimization, AI-assisted content systems, and basic Meta Ads campaigns.</p>
+        <div class="actions"><a class="btn btn-main" href="#work">View Portfolio ↗</a><a class="btn" target="_blank" href="https://www.instagram.com/aashiv._/?__pwa=1">Instagram Profile</a></div>
+      </div>
+
+      <div class="profile-card reveal" id="tiltCard">
+        <div class="profile-inner">
+          <div class="chip-live">SMM + Strategy</div>
+          <div class="photo-row">
+            <div class="photo">
+              <img src="aashiv pass pic.jpg" alt="Aashiv Kohli profile photo placeholder">
+             
+            </div>
+            <div class="profile-info">
+              <small>Creative Portfolio</small>
+              <h2>Aashiv Kohli</h2>
+              <p>Social Media Manager who understands content, reels growth, design direction, SEO, GMB, AI tools, and basic ads.</p>
+              <div class="chips"><span class="chip">Reels Strategy</span><span class="chip">Grid Planning</span><span class="chip">SEO + GMB</span><span class="chip">AI Tools</span><span class="chip">Meta Ads</span></div>
+            </div>
+          </div>
+          <div class="stats">
+            <div class="stat"><strong class="counter" data-target="96400">0</strong><span>Organic Reel Views</span></div>
+            <div class="stat"><strong class="counter" data-target="95300">0</strong><span>Followers in 2 Months</span></div>
+            <div class="stat"><strong>Walk-ins</strong><span>Driven by Creatives</span></div>
+            <div class="stat"><strong>SEO</strong><span>GMB + Local Growth</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="grid grid-3">
+        <div class="card reveal"><div class="icon">📣</div><h3>Content Strategy</h3><p>Hooks, reels, captions, content calendar, and Instagram grid planning.</p></div>
+        <div class="card reveal"><div class="icon">📈</div><h3>Growth Focus</h3><p>Content direction that improves reach, engagement, brand visibility, and walk-ins.</p></div>
+        <div class="card reveal"><div class="icon">🎬</div><h3>Execution Direction</h3><p>Clear guidance for designers and video editors to create stronger reels and creatives.</p></div>
+      </div>
+    </section>
+
+    <section class="container" id="about">
+      <div class="head reveal"><div><p class="eyebrow">About Me</p><h2 class="title">Strategy + creativity + execution.</h2></div><p>I have worked with product-based brands, jewellery brands, immigration consultants, IELTS pages, physiotherapists, doctors, restaurants, and clubs. My strength is understanding what content should look like, how it should be presented, and how designers or video editors should execute it.</p></div>
+    </section>
+
+    <section class="container" id="services">
+      <div class="head reveal"><div><p class="eyebrow">Services</p><h2 class="title">What I can manage</h2></div><p>From content planning to execution, I help brands maintain a consistent and attractive social media presence.</p></div>
+      <div class="grid grid-3">
+        <div class="service reveal"><b>✓</b> Social Media Management</div><div class="service reveal"><b>✓</b> Content Strategy & Planning</div><div class="service reveal"><b>✓</b> Reels Strategy & Growth</div><div class="service reveal"><b>✓</b> Post & Creative Direction</div><div class="service reveal"><b>✓</b> Instagram Grid Planning</div><div class="service reveal"><b>✓</b> SEO & Content Optimization</div><div class="service reveal"><b>✓</b> Google My Business Optimization</div><div class="service reveal"><b>✓</b> AI Tools for Content & Research</div><div class="service reveal"><b>✓</b> Meta Ads Basic Campaigns</div><div class="service reveal"><b>✓</b> Audience Engagement</div><div class="service reveal"><b>✓</b> Analytics & Tracking</div>
+      </div>
+    </section>
+
+    <section class="container" id="work">
+      <div class="head reveal"><div><p class="eyebrow">Portfolio</p><h2 class="title">Selected Work</h2></div><p>Real social media work across gifting, IELTS, restaurants, jewellery, immigration, doctors, and consultant brands.</p></div>
+      <div class="grid grid-2">
+        <div class="card project reveal"><div class="project-top"><div><p class="num">01 / Hamper Brand</p><h3>Sugarr.n.silk</h3></div><a class="open" target="_blank" href="https://www.instagram.com/sugarr.n.silk">↗</a></div><p><b>Work:</b> Social media management, design planning, content calendar, Instagram grid planning, and creative direction.</p><p><b>Result:</b> Built a premium gifting brand presence.</p></div>
+        <div class="card project reveal"><div class="project-top"><div><p class="num">02 / IELTS Education</p><h3>Makkar IELTS</h3></div><a class="open" target="_blank" href="https://www.instagram.com/makkarielts">↗</a></div><p><b>Work:</b> Reel strategy, content planning, creative direction.</p><p><b>Result:</b> Achieved <b>96.4K organic views</b> on a reel.</p></div>
+        <div class="card project reveal"><div class="project-top"><div><p class="num">03 / Club & Restaurant</p><h3>Spotlyt Social</h3></div><a class="open" target="_blank" href="https://www.instagram.com/spotlytsocial">↗</a></div><p><b>Work:</b> Food creatives, reel planning, event promotion.</p><p><b>Result:</b> Helped increase walk-ins through social media creatives.</p></div>
+        <div class="card project reveal"><div class="project-top"><div><p class="num">04 / Jewellery</p><h3>Nathi Ram Chandi Wale</h3></div><a class="open" target="_blank" href="https://www.instagram.com/nathi_ram_chandi_wale">↗</a></div><p><b>Work:</b> Product creatives, festive campaigns, branding visuals.</p><p><b>Result:</b> Helped improve store walk-ins and brand visibility.</p></div>
+        <div class="card project reveal"><div class="project-top"><div><p class="num">05 / Immigration</p><h3>Extramile Careers</h3></div><a class="open" target="_blank" href="https://www.instagram.com/extramile.careers">↗</a></div><p><b>Work:</b> Content planning, Instagram grid, promotional creatives.</p><p><b>Result:</b> Improved content presentation and consistency.</p></div>
+        <div class="card project reveal"><div class="project-top"><div><p class="num">06 / Doctor</p><h3>Dr Hakam Singh</h3></div><a class="open" target="_blank" href="https://www.instagram.com/drhakamsingh">↗</a></div><p><b>Work:</b> Reels growth, content strategy, creative direction.</p><p><b>Result:</b> Grew to <b>95.3K followers in 2 months</b>.</p></div>
+        <div class="card project reveal"><div class="project-top"><div><p class="num">07 / Consultant</p><h3>Gagan Luthra Consultants</h3></div><a class="open" target="_blank" href="https://www.instagram.com/gagandp">↗</a></div><p><b>Work:</b> Content planning, branding, and growth strategy.</p><p><b>Result:</b> Improved presence and audience reach.</p></div>
+        <div class="card project reveal"><div class="project-top"><div><p class="num">08 / Aesthetic Doctor</p><h3>Dr Divya Arora</h3></div><a class="open" target="_blank" href="https://www.instagram.com/dr.divyaarora">↗</a></div><p><b>Work:</b> Personal brand building, aesthetic content, reels strategy.</p><p><b>Result:</b> Strong niche authority in beauty & facial aesthetics.</p></div>
+      </div>
+    </section>
+
+    <section class="container" id="experience">
+      <div class="head reveal"><div><p class="eyebrow">Experience</p><h2 class="title">Current Role</h2></div></div>
+      <div class="grid grid-2">
+        <div class="card reveal"><h3>Social Media Manager</h3><p>Noted Ad Digital, Jalandhar · May 2025 – Present</p><ul><li>• Managing social media pages across multiple niches.</li><li>• Planning calendars and Instagram grid layouts.</li><li>• Guiding designers and video editors for reels and creatives.</li><li>• Running basic Meta Ads campaigns.</li><li>• Improving SEO, GMB presence, and local visibility.</li><li>• Using AI tools for research, hooks, captions, and planning.</li></ul></div>
+        <div class="card reveal"><h3>Social Media Intern</h3><p>Noted Ad Digital · Feb 2025 – May 2025</p><p>Assisted in content planning, creative direction, Instagram posts, reels, page growth, client handling, and campaign execution.</p></div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="grid grid-2">
+        <div class="card reveal"><p class="eyebrow">Skills</p><h3>Core Strengths</h3><div class="tags"><span class="tag">Content Strategy</span><span class="tag">Reels Planning</span><span class="tag">Creative Direction</span><span class="tag">Instagram Growth</span><span class="tag">SEO</span><span class="tag">GMB Optimization</span><span class="tag">AI Tools</span><span class="tag">Meta Ads</span><span class="tag">Analytics</span></div></div>
+        <div class="card reveal"><p class="eyebrow">Tools</p><h3>Tools I Use</h3><div class="tags"><span class="tag">Canva</span><span class="tag">Photoshop</span><span class="tag">CapCut</span><span class="tag">Meta Ads Manager</span><span class="tag">Instagram Insights</span><span class="tag">Google Business Profile</span><span class="tag">ChatGPT</span><span class="tag">AI Image/Video Tools</span></div></div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="head reveal"><div><p class="eyebrow">Proof Stack</p><h2 class="title">Why brands trust my work</h2></div><p>A practical mix of creativity, strategy, SEO, GMB, AI tools, and performance thinking.</p></div>
+      <div class="grid grid-3"><div class="card reveal"><div class="icon">🚀</div><h3>Content That Performs</h3><p>Reel hooks, thumbnails, captions, and visual direction made for engagement.</p></div><div class="card reveal"><div class="icon">📍</div><h3>Local Growth Mindset</h3><p>SEO and Google My Business optimization for better local search presence.</p></div><div class="card reveal"><div class="icon">🤖</div><h3>AI-Powered Workflow</h3><p>AI tools for faster research, content ideas, hooks, captions, and references.</p></div></div>
+    </section>
+
+    <section class="container">
+      <div class="grid grid-4"><div class="card reveal"><p class="num">Step 01</p><h3>Research</h3><p>Brand, niche, audience, competitors.</p></div><div class="card reveal"><p class="num">Step 02</p><h3>Plan</h3><p>Calendar, hooks, captions, grid.</p></div><div class="card reveal"><p class="num">Step 03</p><h3>Create</h3><p>Guide posts, reels, thumbnails.</p></div><div class="card reveal"><p class="num">Step 04</p><h3>Track</h3><p>Review insights and optimize.</p></div></div>
+    </section>
+
+    <section class="container"><div class="card reveal"><p class="eyebrow">Education</p><h3>MCA – Master of Computer Applications</h3><p>Lovely Professional University Online · Currently Pursuing</p><br><h3>BCA – Bachelor of Computer Applications</h3><p>DAV College · 2022 – 2025</p></div></section>
+
+    <section class="container" id="contact"><div class="contact reveal"><div><p class="eyebrow">Contact</p><h2 class="title">Let’s build your brand presence.</h2><p class="text" style="margin:18px 0 28px">Available for SMM, content strategy, reel planning, creative direction, SEO, GMB optimization, AI-assisted planning, and basic Meta Ads work.</p><div class="actions"><a class="btn btn-main" href="mailto:aashivworks@gmail.com">Email Me</a><a class="btn" href="tel:+919914363243">Call / WhatsApp</a></div></div><div class="contact-box"><p>📞 +91 99143 63243</p><p>✉️ aashivworks@gmail.com</p><p>📸 @aashiv._</p><p>📍 Jalandhar, Punjab</p></div></div></section>
+  </main>
+
+  <footer>© 2026 Aashiv Kohli. Social Media Manager Portfolio.</footer>
+
+  <script>
+    const reveals=document.querySelectorAll('.reveal');
+    const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('active')})},{threshold:.12});
+    reveals.forEach(el=>observer.observe(el));
+
+    const counters=document.querySelectorAll('.counter');
+    let counted=false;
+    function runCounters(){if(counted)return;counted=true;counters.forEach(counter=>{let target=+counter.dataset.target,count=0,step=target/90;let timer=setInterval(()=>{count+=step;if(count>=target){counter.innerText=target.toLocaleString();clearInterval(timer)}else counter.innerText=Math.floor(count).toLocaleString()},18)})}
+    window.addEventListener('scroll',()=>{if(window.scrollY>80)runCounters()});
+    setTimeout(runCounters,1000);
+
+    const tilt=document.getElementById('tiltCard');
+    if(tilt){tilt.addEventListener('mousemove',e=>{const r=tilt.getBoundingClientRect();const x=e.clientX-r.left,y=e.clientY-r.top;tilt.style.transform=`rotateX(${-(y-r.height/2)/25}deg) rotateY(${(x-r.width/2)/25}deg)`});tilt.addEventListener('mouseleave',()=>tilt.style.transform='rotateX(0) rotateY(0)')}
+  </script>
+</body>
+</html>
